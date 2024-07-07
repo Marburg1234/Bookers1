@@ -1,0 +1,65 @@
+
+<h1>Books</h1>
+
+
+
+<table>
+
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %> </td>
+      <td><%= book.body %> </td>
+      <td><%= link_to 'Show', book_path(book) %></td>
+      <td><%= link_to 'Edit', edit_book_path(book) %></td>
+      <td><%= link_to 'Destroy', book_path(book), method: :delete, data: {confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
+
+<!--ここまでがindex一覧ページのコード-->
+
+<!--ここからがnew投稿ページのコード-->
+
+<%= form_with model: @book, url: books_path  do |f| %>
+<!--↑フォームを作成する宣言・ListというModelのデータたちを|f|に代入する-->
+  <h2>New book</h2>
+
+<!--投稿エラーのメッセージを追加(validateの結果を表示する-->
+  <% if @book.errors.any? %>
+    <% if @book.errors.count == 1 %>
+    <%= @book.errors.count %> error prohibited this book from being saved:
+    <% else %>
+    <%= @book.errors.count %> errors prohibited this book from being saved:
+  <% end %>
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <!--変数fを使ってデータを取得する⇒:title-にてその中から:タイトルを取得する-->
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <!--変数fを使ってデータを取得する⇒:bodyのデータを指定している-->
+
+
+  <%= f.submit "Create Book" %>
+
+<% end %>

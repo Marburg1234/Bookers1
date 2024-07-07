@@ -1,0 +1,21 @@
+
+
+<%= form_with model: @book, url: books_path  do |f| %>
+<!--↑フォームを作成する宣言・ListというModelのデータたちを|f|に代入する-->
+  <h2>New book</h2>
+
+  <h4>Title</h4>
+  <%= f.text_field :title %>
+  <!--変数fを使ってデータを取得する⇒:title-にてその中から:タイトルを取得する-->
+
+  <h4>Body</h4>
+  <%= f.text_area :body %>
+  <!--変数fを使ってデータを取得する⇒:bodyのデータを指定している-->
+
+
+  <%= f.submit "Create Book" %>
+
+<% end %>
+
+
+
