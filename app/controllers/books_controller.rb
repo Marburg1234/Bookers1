@@ -16,11 +16,11 @@ class BooksController < ApplicationController
     #redirect_to book_path(book) #リダイレクトを指定
     #以下フラッシュメッセージを作成する
     if @book.save
-      flash[:notice] = "Book was successfully created."
-      redirect_to book_path(@book)
+      flash[:notice] = "Book was successfully created." #保存成功したときのメッセージ
+      redirect_to book_path(@book) #リダイレクト
     else
-      @books = Book.all #ここを入力してみた。なぜ@books複数形が必要なのか？@bookじゃだめ？
-      render :index
+      @books = Book.all #@booksの変数がこのcreatアクション内にないため定義する
+      render :index #renderにてページ表示を指定する
     end
   end
 
