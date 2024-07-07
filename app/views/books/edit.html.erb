@@ -32,9 +32,13 @@
 
 <%= f.submit "Update Book" %>
 
+<!--link_toを使って、ボタン作成と遷移先の指定をする-->
+<!--(@book)は変数で、対象のデータを保持して画面を遷移する-->
 <%= link_to 'Show', book_path(@book) %>
 <%= link_to 'Back', books_path %>
+
 <!--<a href="#">Show</a>-->
 <!--<a href="#">Back</a>-->
+<!--aタグはRailsのhtml.erbでは使用しない!!-->
 
 <% end %>

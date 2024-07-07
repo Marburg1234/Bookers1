@@ -3,12 +3,15 @@ Rails.application.routes.draw do
 
   #get 'top' => 'homes#top' #分からないためとりあえずtop画面にurl /topと設定している
   resources :books
-  
+
   root to: 'homes#top'
 
 #resources :booksにて作成されるルーティング一覧
-  # prefix    Verb    URI Pattern     =>  Controller#Action   機能
 
+  #prefixは pathの指定をするときに使用する
+  # books_path → index(一覧ページ)への遷移を指定できる
+
+  # prefix    Verb    URI Pattern     =>  Controller#Action   機能
   # books     get     'books'         => 'books#index'      一覧画面の表示
   # books     post    'books'         => 'books#create'     投稿機能
   # new_book  get     'books/new'     => 'books#new         登録画面の表示
