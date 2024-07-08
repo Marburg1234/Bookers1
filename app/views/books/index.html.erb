@@ -36,6 +36,8 @@
   <h2>New book</h2>
 
 <!--投稿エラーのメッセージを追加(validateの結果を表示する-->
+<!--if文を追加する⇒1つの時 error単数形 2つ以上の時⇒h数形-->
+<!--errors.countって何か？-->
   <% if @book.errors.any? %>
     <% if @book.errors.count == 1 %>
     <%= @book.errors.count %> error prohibited this book from being saved:
